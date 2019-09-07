@@ -110,6 +110,8 @@ void PID::calc_P()
 void PID::calc_I()
 {
 	I += obs.dif * time.dif;
+	if (fabs(obs.dif) > 80) I = 0;
+	else if (fabs(obs.dif) < 3) I = 0;
 }
 
 

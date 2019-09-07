@@ -9,7 +9,7 @@
 #include "default_instructions.h"
 
 
-JointMotor<FnkOut> motor_r(&pwm_r, &enc_r);
+JointMotor<FnkOut> motor_r(&pwm_r, &enc_r, -1);
 
 Timer pid_timer;
 Timer timer;
@@ -21,7 +21,7 @@ void led_all(int onoff)
 }
 
 
-#define BUFF_ARRIVE 3 // [mm]
+#define BUFF_ARRIVE 4 // [mm]
 #define WAIT_ARRIVE 10
 inline bool has_arrived(int cnt_r)
 {
@@ -30,12 +30,13 @@ inline bool has_arrived(int cnt_r)
 
 
 int main() {
-	float pid_gain_r[3] = {0, 0, 0};
+	float pid_gain_r[3] = {0.0072, 0, 0.000015};
 	float r_now; // エンコーダーで読んだ現在値
 	float r_next = INIT_R;
 	float r_start = INIT_R;
 	float r_target = INIT_R;
 	float r_dist = 0;
+	float r_duty = 0.5;
 	int r_cnt_arrive = 0;
 
 	float now_t; // 時刻
@@ -73,9 +74,12 @@ int main() {
 		case Mode::NonLinearAcc:
 			r_next = r_start + sin_accel_pos(inst.duration, r_dist, now_t);
 			break;
+		case Mode::Zero:
+			if (now_t < inst.duration) r_cnt_arrive = 0;
+			break;
 		}
 
-		motor_r.move_to(r_next);
+		r_duty = motor_r.move_to(r_next);
 		cylinder_base.write(inst.cylinder_base);
 		cylinder_hand.write(inst.cylinder_hand);
 
@@ -98,9 +102,10 @@ int main() {
 			}
 		}
 
-		pc.printf("gain: %1.4f %1.4f %1.4f  ", pid_gain_r[0], pid_gain_r[1], pid_gain_r[2]);
-		pc.printf("r: %4.1f  r_next: %4.1f", r_now, r_next);
-//		pc.printf("cyl_base: %d  cyl_hand: %d  ", cylinder_base.read(), cylinder_hand.read());
+//		pc.printf("gain: %f %f %f  ", pid_gain_r[0], pid_gain_r[1], pid_gain_r[2]);
+		pc.printf("now: %2.2f  ", now_t);
+		pc.printf("r_duty: %1.4f  r: %4.1f  r_next: %4.1f  ", r_duty,  r_now, r_next);
+		pc.printf("cyl_base: %d  cyl_hand: %d  ", cylinder_base.read(), cylinder_hand.read());
 		pc.printf("\r\n");
 	}
 }

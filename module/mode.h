@@ -15,7 +15,8 @@ public:
 	enum Accelaration
 	{
 		LinearAcc,
-		NonLinearAcc
+		NonLinearAcc,
+		Zero
 	};
 };
 
