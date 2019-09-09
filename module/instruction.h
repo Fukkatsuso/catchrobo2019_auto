@@ -19,14 +19,16 @@ struct Instruction
 public:
 	Instruction(){}
 
-	Instruction(float r, int cylinder_base, int cylinder_hand, float duration, enum Mode::Accelaration acc):
-		r(r), cylinder_base(cylinder_base), cylinder_hand(cylinder_hand), duration(duration), acc(acc) {}
+	Instruction(float r, int cylinder_base, int cylinder_hand, float duration,
+			enum Mode::Accelaration acc, enum Mode::State state=Mode::Run):
+		r(r), cylinder_base(cylinder_base), cylinder_hand(cylinder_hand), duration(duration), acc(acc), state(state) {}
 
 	float r;
 	int cylinder_base;
 	int cylinder_hand;
 	float duration;
 	Mode::Accelaration acc;
+	Mode::State state;
 };
 
 

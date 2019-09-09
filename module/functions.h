@@ -26,9 +26,5 @@ float linear_accel_pos(float period, float dist, float now_t);
 
 int counter_update(int counter, float now, float target, float buff);
 
-//cartesian -> polar
-void cartesian2polar(float x, float y, float z, float* r, float* theta, float* phi);
-void polar2cartesian(float r, float theta, float phi, float* x, float* y, float* z);
-
 
 #endif /* FUNCTIONS_H_ */

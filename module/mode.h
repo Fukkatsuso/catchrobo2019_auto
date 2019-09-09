@@ -18,6 +18,15 @@ public:
 		NonLinearAcc,
 		Zero
 	};
+
+	enum State
+	{
+		Wait,
+		Run,
+		StartRoutine,
+		EndRoutine,
+		End
+	};
 };
 
 
