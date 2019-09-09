@@ -20,28 +20,28 @@ Instruction default_inst[INST_NUM] =
 		Instruction(INIT_R,	0,	0,	3,	Mode::Zero), // 待機
 		Instruction(INIT_R,	1,	0,	1.5,Mode::Zero), // baseを前に
 
-		Instruction(670,	1,	0,	2,	Mode::NonLinearAcc), // アーム伸ばす
-		Instruction(670,	1,	1,	1,	Mode::Zero), // hand下す
-		Instruction(480,	1,	1,	1.5,Mode::LinearAcc), // アーム引く
-		Instruction(480,	1,	1,	1,	Mode::Zero), // 1秒待機
+		Instruction(660,	1,	0,	2,	Mode::NonLinearAcc), // アーム伸ばす
+		Instruction(660,	1,	1,	1,	Mode::Zero), // hand下す
+		Instruction(475,	1,	1,	1.5,Mode::LinearAcc), // アーム引く
+		Instruction(475,	1,	1,	0.5,	Mode::Zero), // 待機
 
-		Instruction(670,	1,	0,	2,	Mode::NonLinearAcc), // アーム伸ばす
-		Instruction(670,	1,	1,	1,	Mode::Zero), // hand下す
-		Instruction(445,	1,	1,	1.5,Mode::LinearAcc), // アーム引く
-		Instruction(445,	1,	1,	1,	Mode::Zero), // 1秒待機
+		Instruction(660,	1,	0,	2,	Mode::NonLinearAcc), // アーム伸ばす
+		Instruction(660,	1,	1,	1,	Mode::Zero), // hand下す
+		Instruction(440,	1,	1,	1.5,Mode::LinearAcc), // アーム引く
+		Instruction(440,	1,	1,	0.5,	Mode::Zero), // 待機
 
-		Instruction(445,	1,	0,	1,	Mode::Zero), // ワーク持ち上げ
-		Instruction(300,	1,	0,	1,	Mode::LinearAcc), // ワーク落とす
+		Instruction(440,	1,	0,	1,	Mode::Zero), // ワーク持ち上げ
+		Instruction(340,	1,	0,	1,	Mode::LinearAcc), // ワーク落とす
 
-		Instruction(670,	1,	0,	2,	Mode::NonLinearAcc), // アーム伸ばす
-		Instruction(670,	1,	1,	1,	Mode::Zero), // hand下す
-		Instruction(445,	1,	1,	1.5,Mode::LinearAcc), // アーム引く
-		Instruction(445,	1,	1,	1,	Mode::Zero), // 1秒待機
+		Instruction(660,	1,	0,	2,	Mode::NonLinearAcc), // アーム伸ばす
+		Instruction(660,	1,	1,	1,	Mode::Zero), // hand下す
+		Instruction(440,	1,	1,	1.5,Mode::LinearAcc), // アーム引く
+		Instruction(440,	1,	1,	0.5,	Mode::Zero), // 待機
 
-		Instruction(445,	1,	0,	1,	Mode::Zero), // ワーク持ち上げ
-		Instruction(300,	1,	0,	1,	Mode::LinearAcc), // ワーク落とす
+		Instruction(440,	1,	0,	1,	Mode::Zero), // ワーク持ち上げ
+		Instruction(340,	1,	0,	1,	Mode::LinearAcc), // ワーク落とす
 
-		Instruction(300,	0,	0,	1,	Mode::Zero)
+		Instruction(340,	0,	0,	1,	Mode::Zero)
 };
 
 
