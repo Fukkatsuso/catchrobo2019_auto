@@ -23,14 +23,28 @@ Instruction default_inst[INST_NUM] =
 		Instruction(INIT_R,	1,	0,	1,	Mode::Zero), // baseを前に
 
 		// かき集めルーティンx2
-		Instruction(660,	1,	0,	2,	Mode::NonLinearAcc, Mode::StartRoutine), // アーム伸ばす
-		Instruction(660,	1,	1,	1,	Mode::Zero), // hand下す
+//		Instruction(660,	1,	0,	2,	Mode::NonLinearAcc, Mode::StartRoutine), // アーム伸ばす
+//		Instruction(660,	1,	1,	1,	Mode::Zero), // hand下す
+//		Instruction(440,	1,	1,	1.2,Mode::LinearAcc), // アーム引く
+//		Instruction(440,	1,	0,	1,	Mode::Zero), // ワーク持ち上げ
+//		Instruction(340,	1,	0,	0.5,Mode::LinearAcc, Mode::EndRoutine), // ワーク落とす
+//
+//		Instruction(610,	1,	0,	1,	Mode::NonLinearAcc, Mode::StartRoutine), // アーム伸ばす
+//		Instruction(610,	1,	1,	1,	Mode::Zero), // hand下す
+//		Instruction(440,	1,	1,	1,	Mode::LinearAcc), // アーム引く
+//		Instruction(440,	1,	0,	1,	Mode::Zero), // ワーク持ち上げ
+//		Instruction(340,	1,	0,	0.5,Mode::LinearAcc, Mode::EndRoutine), // ワーク落とす
+
+		// かき集めルーティンx2
+		// 前後分割
+		Instruction(560,	1,	0,	2,	Mode::NonLinearAcc, Mode::StartRoutine), // アーム伸ばす
+		Instruction(560,	1,	1,	1,	Mode::Zero), // hand下す
 		Instruction(440,	1,	1,	1.2,Mode::LinearAcc), // アーム引く
 		Instruction(440,	1,	0,	1,	Mode::Zero), // ワーク持ち上げ
 		Instruction(340,	1,	0,	0.5,Mode::LinearAcc, Mode::EndRoutine), // ワーク落とす
 
-		Instruction(610,	1,	0,	1,	Mode::NonLinearAcc, Mode::StartRoutine), // アーム伸ばす
-		Instruction(610,	1,	1,	1,	Mode::Zero), // hand下す
+		Instruction(660,	1,	0,	1,	Mode::NonLinearAcc, Mode::StartRoutine), // アーム伸ばす
+		Instruction(660,	1,	1,	1,	Mode::Zero), // hand下す
 		Instruction(440,	1,	1,	1,	Mode::LinearAcc), // アーム引く
 		Instruction(440,	1,	0,	1,	Mode::Zero), // ワーク持ち上げ
 		Instruction(340,	1,	0,	0.5,Mode::LinearAcc, Mode::EndRoutine), // ワーク落とす
